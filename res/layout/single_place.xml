@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+    <ListView android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@android:id/list"/>
+
+    <Button android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Bomb!"
+            android:layout_alignParentBottom="true" android:onClick="onBomb"/>
+</RelativeLayout>
