@@ -5,6 +5,8 @@ import android.R;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.http.AndroidHttpClient;
@@ -12,6 +14,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -103,8 +106,10 @@ public class ListCheckin extends ListActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             View v = LayoutInflater.from(ListCheckin.this).inflate(R.layout.simple_list_item_2, null);
             TextView t = (TextView) v.findViewById(R.id.text1);
+            t.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 40F);
             TextView t2 = (TextView) v.findViewById(R.id.text2);
-
+            t2.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 30F);
+            t2.setTextColor(Color.RED);
             try {
                 Log.i("TEST", array.getJSONObject(position).getString("id"));
                 t.setText(array.getJSONObject(position).getString("name"));
