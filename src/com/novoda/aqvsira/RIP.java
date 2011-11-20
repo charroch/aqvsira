@@ -16,9 +16,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.novoda.aqvsira.SinglePlace.SinglePlaceTask;
-import com.novoda.aqvsira.SinglePlace.UserHolder;
-import com.novoda.aqvsira.SinglePlace.UserHolderAdapter;
 
 import android.app.ListActivity;
 import android.content.Context;
