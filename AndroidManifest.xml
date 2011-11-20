@@ -6,7 +6,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-sdk android:targetSdkVersion="14"/>
-    <application android:label="@string/app_name" android:icon="@drawable/icon" android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">
+    <application android:label="@string/app_name" android:icon="@drawable/icon" 
+        android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"
+        android:name=".application.Aqvsira">
         <activity android:name=".SinglePlace" />
         <activity android:name=".ListCheckin" />
                 <activity android:name=".RIP" />
