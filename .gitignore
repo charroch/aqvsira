@@ -1,4 +1,5 @@
 *.class
 res
 gen
-
+out/
+bin/
