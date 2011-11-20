@@ -1,5 +1,25 @@
 package com.novoda.aqvsira;
 
+import static com.novoda.aqvsira.R.layout.single_place;
+import static com.novoda.aqvsira.R.layout.user;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.novoda.aqvsira.SinglePlace.SinglePlaceTask;
+import com.novoda.aqvsira.SinglePlace.UserHolder;
+import com.novoda.aqvsira.SinglePlace.UserHolderAdapter;
+
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -8,31 +28,16 @@ import android.graphics.BitmapFactory;
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.List;
-
-import static com.novoda.aqvsira.R.layout.*;
-
-public class SinglePlace extends ListActivity {
+public class RIP extends ListActivity {
 
 	private static String URL = "https://api.foursquare.com/v2/venues/%s?oauth_token=%s&v=20111001";
 
@@ -101,7 +106,7 @@ public class SinglePlace extends ListActivity {
 
 		@Override
 		protected void onPostExecute(List<UserHolder> userHolders) {
-			setListAdapter(new UserHolderAdapter(SinglePlace.this, userHolders));
+			setListAdapter(new UserHolderAdapter(RIP.this, userHolders));
 			super.onPostExecute(userHolders);
 		}
 	}
@@ -135,7 +140,7 @@ public class SinglePlace extends ListActivity {
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
-			View v = LayoutInflater.from(SinglePlace.this).inflate(user, null);
+			View v = LayoutInflater.from(RIP.this).inflate(user, null);
 			((TextView) v.findViewById(R.id.name))
 					.setText(a.get(position).name);
 			((ImageView) v.findViewById(R.id.img)).setImageBitmap(a
