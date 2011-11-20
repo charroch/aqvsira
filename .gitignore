@@ -1,6 +1,10 @@
 *.class
 gen/
 local.properties
-\.idea/
+.idea/
 out/
 *.iml
+.classpath
+.project
+.settings/
+bin/

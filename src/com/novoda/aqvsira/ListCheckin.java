@@ -48,13 +48,14 @@ public class ListCheckin extends ListActivity {
         @Override
         protected JSONArray doInBackground(Void... voids) {
             LocationManager manager = (LocationManager) ListCheckin.this.getSystemService(Context.LOCATION_SERVICE);
-            Location loc = manager.getLastKnownLocation("gps");
+            Location loc = manager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
 
             String url = "https://api.foursquare.com/v2/venues/search?ll=" + loc.getLatitude() + "," + loc.getLongitude() + "&oauth_token=" + token + "&v=20110930";
             AndroidHttpClient client = newInstance("test");
             try {
                 HttpResponse response = client.execute(new HttpGet(url));
-                JSONObject ob = new JSONObject(EntityUtils.toString(response.getEntity()));
+                String responseString = EntityUtils.toString(response.getEntity());
+				JSONObject ob = new JSONObject(responseString);
 
                 json = ob.getJSONObject("response").getJSONArray("venues");
                 return json;

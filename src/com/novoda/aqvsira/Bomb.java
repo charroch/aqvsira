@@ -12,17 +12,17 @@ public class Bomb extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tv = new TextView(this);
-        tv.setTextSize(128.0f);
-        this.setContentView(tv);
+        setContentView(R.layout.bomb);
+//        tv = new TextView(this);
+//        tv.setTextSize(128.0f);
+//        this.setContentView(tv);
 
-        // 10000 is the starting number (in milliseconds)
-        // 1000 is the number to count down each time (in milliseconds)
-
-        CD counter = new CD(10000, 1000);
-        counter.start();
+//        CD counter = new CD(10000, 1000);
+//        counter.start();
     }
 
+    
+    
     public class CD extends CountDownTimer {
         public CD(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
