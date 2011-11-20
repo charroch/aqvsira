@@ -1,6 +1,6 @@
 *.class
 gen/
 local.properties
-.idea/
+\.idea/
 out/
-
+*.iml
