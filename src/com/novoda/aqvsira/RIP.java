@@ -1,6 +1,5 @@
 package com.novoda.aqvsira;
 
-import static com.novoda.aqvsira.R.layout.single_place;
 import static com.novoda.aqvsira.R.layout.user;
 
 import java.io.IOException;
@@ -16,7 +15,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -26,7 +24,6 @@ import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +39,7 @@ public class RIP extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		String id = getIntent().getStringExtra("id");
-		setContentView(single_place);
+		setContentView(R.layout.rip);
 		new SinglePlaceTask(this, id).execute();
 	}
 
