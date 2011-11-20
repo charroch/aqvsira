@@ -1,4 +1,6 @@
 *.class
-res
-gen
+gen/
+local.properties
+.idea/
+out/
 
