@@ -109,7 +109,7 @@ public class RIP extends ListActivity {
 	}
 
 	public void onBomb(View view) {
-		startActivity(new Intent(this, Bomb.class));
+		startActivity(new Intent(this, RIP.class));
 	}
 
 	private class UserHolder {
