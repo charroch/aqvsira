@@ -5,23 +5,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.view.View;
 import android.widget.TextView;
 
 public class Bomb extends Activity {
-
-	private BombTimer bombTimer;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.bomb);
 		TextView timerView = (TextView) findViewById(R.id.bomb_timer);
-		bombTimer = new BombTimer(timerView, this, getIntent().getStringExtra("id"));
-	}
-
-	public void starCountdown(View v) {
-		bombTimer.start();
+		new BombTimer(timerView, this, getIntent().getStringExtra("id")).start();
 	}
 
 	private static class BombTimer extends CountDownTimer {

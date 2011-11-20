@@ -2,9 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:onClick="starCountdown"
-     >
+    android:orientation="vertical" >
 
     <TextView
         android:id="@+id/bomb_timer"
@@ -12,8 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="00:10"
-        android:textSize="20sp"
-        android:textColor="#ff0000" />
+        android:textColor="#ff0000"
+        android:textSize="20sp" />
 
     <ImageView
         android:layout_width="match_parent"
