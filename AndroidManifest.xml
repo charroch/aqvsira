@@ -9,6 +9,8 @@
     <application android:label="@string/app_name" android:icon="@drawable/icon" android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">
         <activity android:name=".SinglePlace" />
         <activity android:name=".ListCheckin" />
+                <activity android:name=".RIP" />
+       
         <activity android:name=".Bomb" >
             
 <!--             <intent-filter> -->
