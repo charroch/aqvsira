@@ -3,39 +3,50 @@ package com.novoda.aqvsira;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.View;
 import android.widget.TextView;
 
 public class Bomb extends Activity {
 
-    TextView tv;
+    private BombTimer bombTimer;
 
-    @Override
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bomb);
-//        tv = new TextView(this);
-//        tv.setTextSize(128.0f);
-//        this.setContentView(tv);
-
-//        CD counter = new CD(10000, 1000);
-//        counter.start();
+        TextView timerView = (TextView) findViewById(R.id.bomb_timer);
+        bombTimer = new BombTimer(timerView);
+    }
+    
+    public void starCountdown(View v){
+    	bombTimer.start();
     }
 
-    
-    
-    public class CD extends CountDownTimer {
-        public CD(long millisInFuture, long countDownInterval) {
-            super(millisInFuture, countDownInterval);
+    private static class BombTimer extends CountDownTimer {
+        private static final long TOTAL_TIME = 10000;
+		private static final long INTERVAL = 950;
+		private final TextView timerView;
+
+		public BombTimer(TextView timerView) {
+            super(TOTAL_TIME, INTERVAL);
+            this.timerView = timerView;
         }
 
         @Override
         public void onFinish() {
-            tv.setText("Boom!");
+            timerView.setText("Boom!");
         }
 
         @Override
         public void onTick(long millisUntilFinished) {
-            tv.setText("" + millisUntilFinished / 1000);
+            long secsLeft = ( millisUntilFinished + 100 ) / 1000;
+            String string = "00:";
+            if(secsLeft >= 10){
+            	string += secsLeft;
+            }else{
+            	string += "0" + secsLeft;
+            }
+			timerView.setText(string);
         }
     }
 }
