@@ -17,7 +17,7 @@ public class Bomb extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.bomb);
 		TextView timerView = (TextView) findViewById(R.id.bomb_timer);
-		bombTimer = new BombTimer(timerView, this);
+		bombTimer = new BombTimer(timerView, this, getIntent().getStringExtra("id"));
 	}
 
 	public void starCountdown(View v) {
@@ -29,18 +29,21 @@ public class Bomb extends Activity {
 		private static final long INTERVAL = 950;
 		private final TextView timerView;
 		private Context context;
+		private String id;
 
-		public BombTimer(TextView timerView, Context context) {
+		public BombTimer(TextView timerView, Context context, String id) {
 			super(TOTAL_TIME, INTERVAL);
 			this.timerView = timerView;
 			this.context = context;
+			this.id = id;
 		}
 
 		@Override
 		public void onFinish() {
 			timerView.setText("Boom!");
-			
-			context.startActivity(new Intent(context, RIP.class));
+			Intent in = new Intent(context, RIP.class);
+			in.putExtra("id", id);
+			context.startActivity(in);
 		}
 
 		@Override

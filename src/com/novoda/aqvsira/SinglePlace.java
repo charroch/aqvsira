@@ -36,10 +36,11 @@ public class SinglePlace extends ListActivity {
 
 	private static String URL = "https://api.foursquare.com/v2/venues/%s?oauth_token=%s&v=20111001";
 
+	private String id;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		String id = getIntent().getStringExtra("id");
+		this.id = getIntent().getStringExtra("id");
 		setContentView(single_place);
 		new SinglePlaceTask(this, id).execute();
 	}
@@ -107,7 +108,9 @@ public class SinglePlace extends ListActivity {
 	}
 
 	public void onBomb(View view) {
-		startActivity(new Intent(this, Bomb.class));
+		Intent intent = new Intent(this, Bomb.class);
+		intent.putExtra("id", id);
+		startActivity(intent);
 	}
 
 	private class UserHolder {
